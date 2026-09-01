@@ -1,0 +1,266 @@
+{
+  "light": {
+    "provenance": "projected",
+    "waitTime": [
+      {
+        "approach": "North (Usman Rd)",
+        "static": 42,
+        "adaptive": 35,
+        "yourSystem": 28
+      },
+      {
+        "approach": "South (Anna Salai)",
+        "static": 39,
+        "adaptive": 33,
+        "yourSystem": 26
+      },
+      {
+        "approach": "East (G.N. Chetty Rd)",
+        "static": 45,
+        "adaptive": 37,
+        "yourSystem": 30
+      },
+      {
+        "approach": "West (Venkatnarayana)",
+        "static": 41,
+        "adaptive": 34,
+        "yourSystem": 27
+      }
+    ],
+    "throughputOverTime": [
+      {
+        "time": "00:00",
+        "static": 120,
+        "adaptive": 135,
+        "yourSystem": 148
+      },
+      {
+        "time": "00:10",
+        "static": 118,
+        "adaptive": 140,
+        "yourSystem": 155
+      },
+      {
+        "time": "00:20",
+        "static": 122,
+        "adaptive": 138,
+        "yourSystem": 160
+      },
+      {
+        "time": "00:30",
+        "static": 125,
+        "adaptive": 142,
+        "yourSystem": 164
+      },
+      {
+        "time": "00:40",
+        "static": 119,
+        "adaptive": 139,
+        "yourSystem": 158
+      },
+      {
+        "time": "00:50",
+        "static": 121,
+        "adaptive": 141,
+        "yourSystem": 162
+      },
+      {
+        "time": "01:00",
+        "static": 124,
+        "adaptive": 143,
+        "yourSystem": 165
+      }
+    ],
+    "avgDelaySec": {
+      "static": 41.8,
+      "adaptive": 34.8,
+      "yourSystem": 27.8
+    },
+    "queueLengthMeters": {
+      "static": 68,
+      "adaptive": 52,
+      "yourSystem": 34
+    },
+    "co2EmissionsKgHr": {
+      "static": 142,
+      "adaptive": 126,
+      "yourSystem": 108
+    }
+  },
+  "moderate": {
+    "provenance": "real",
+    "waitTime": [
+      {
+        "approach": "North (Usman Rd)",
+        "static": 72,
+        "adaptive": 58,
+        "yourSystem": 39
+      },
+      {
+        "approach": "South (Anna Salai)",
+        "static": 68,
+        "adaptive": 54,
+        "yourSystem": 36
+      },
+      {
+        "approach": "East (G.N. Chetty Rd)",
+        "static": 75,
+        "adaptive": 62,
+        "yourSystem": 42
+      },
+      {
+        "approach": "West (Venkatnarayana)",
+        "static": 65,
+        "adaptive": 52,
+        "yourSystem": 35
+      }
+    ],
+    "throughputOverTime": [
+      {
+        "time": "00:00",
+        "static": 98,
+        "adaptive": 114,
+        "yourSystem": 142
+      },
+      {
+        "time": "00:10",
+        "static": 94,
+        "adaptive": 112,
+        "yourSystem": 146
+      },
+      {
+        "time": "00:20",
+        "static": 91,
+        "adaptive": 110,
+        "yourSystem": 149
+      },
+      {
+        "time": "00:30",
+        "static": 88,
+        "adaptive": 108,
+        "yourSystem": 152
+      },
+      {
+        "time": "00:40",
+        "static": 92,
+        "adaptive": 111,
+        "yourSystem": 150
+      },
+      {
+        "time": "00:50",
+        "static": 95,
+        "adaptive": 115,
+        "yourSystem": 153
+      },
+      {
+        "time": "01:00",
+        "static": 90,
+        "adaptive": 112,
+        "yourSystem": 151
+      }
+    ],
+    "avgDelaySec": {
+      "static": 42,
+      "adaptive": 35,
+      "yourSystem": 28
+    },
+    "queueLengthMeters": {
+      "static": 62,
+      "adaptive": 45,
+      "yourSystem": 25
+    },
+    "co2EmissionsKgHr": {
+      "static": 95,
+      "adaptive": 78,
+      "yourSystem": 53
+    }
+  },
+  "heavy": {
+    "provenance": "projected",
+    "waitTime": [
+      {
+        "approach": "North (Usman Rd)",
+        "static": 112,
+        "adaptive": 88,
+        "yourSystem": 54
+      },
+      {
+        "approach": "South (Anna Salai)",
+        "static": 124,
+        "adaptive": 96,
+        "yourSystem": 58
+      },
+      {
+        "approach": "East (G.N. Chetty Rd)",
+        "static": 130,
+        "adaptive": 102,
+        "yourSystem": 61
+      },
+      {
+        "approach": "West (Venkatnarayana)",
+        "static": 106,
+        "adaptive": 82,
+        "yourSystem": 50
+      }
+    ],
+    "throughputOverTime": [
+      {
+        "time": "00:00",
+        "static": 76,
+        "adaptive": 92,
+        "yourSystem": 134
+      },
+      {
+        "time": "00:10",
+        "static": 68,
+        "adaptive": 86,
+        "yourSystem": 138
+      },
+      {
+        "time": "00:20",
+        "static": 62,
+        "adaptive": 80,
+        "yourSystem": 141
+      },
+      {
+        "time": "00:30",
+        "static": 58,
+        "adaptive": 75,
+        "yourSystem": 144
+      },
+      {
+        "time": "00:40",
+        "static": 55,
+        "adaptive": 74,
+        "yourSystem": 142
+      },
+      {
+        "time": "00:50",
+        "static": 60,
+        "adaptive": 78,
+        "yourSystem": 145
+      },
+      {
+        "time": "01:00",
+        "static": 57,
+        "adaptive": 76,
+        "yourSystem": 143
+      }
+    ],
+    "avgDelaySec": {
+      "static": 118,
+      "adaptive": 92,
+      "yourSystem": 55.8
+    },
+    "queueLengthMeters": {
+      "static": 245,
+      "adaptive": 182,
+      "yourSystem": 94
+    },
+    "co2EmissionsKgHr": {
+      "static": 348,
+      "adaptive": 274,
+      "yourSystem": 172
+    }
+  }
+}

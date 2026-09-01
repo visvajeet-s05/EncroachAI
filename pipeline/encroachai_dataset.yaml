@@ -1,0 +1,41 @@
+# EncroachAI YOLOv10 Dataset Configuration
+# Target: Chennai Arterial Corridor Encroachment Detection
+# Base Pretraining: India Driving Dataset (IDD-Detection, IIIT Hyderabad)
+
+path: ./dataset  # dataset root dir
+train: images/train  # train images (relative to 'path')
+val: images/val      # val images (relative to 'path')
+test: images/test    # test images (optional)
+
+# Number of classes
+nc: 4
+
+# Class names matching EncroachAI schema
+names:
+  0: vendor_cart
+  1: double_parked_vehicle
+  2: illegal_stall
+  3: pedestrian_spillover
+
+# Class metadata & descriptions
+class_details:
+  vendor_cart:
+    tamil_label: "தள்ளுவண்டி"
+    description: "Mobile wooden or metal handcarts selling fruits, flowers, snacks, tea"
+    nominal_width_m: 1.5
+    friction_coefficient: 0.82
+  double_parked_vehicle:
+    tamil_label: "இரட்டை நிறுத்தம்"
+    description: "Idling auto-rickshaws, parked cars, delivery two-wheelers in outer lane"
+    nominal_width_m: 2.1
+    friction_coefficient: 0.90
+  illegal_stall:
+    tamil_label: "ஆக்கிரமிப்பு கடை"
+    description: "Semi-permanent roadside tarpaulin/bamboo kiosks protruding into carriageway"
+    nominal_width_m: 2.6
+    friction_coefficient: 0.95
+  pedestrian_spillover:
+    tamil_label: "பாதசாரிகள் ஆக்கிரமிப்பு"
+    description: "Pedestrian stream walking in vehicular lanes due to obstructed footpath"
+    nominal_width_m: 1.2
+    friction_coefficient: 0.75

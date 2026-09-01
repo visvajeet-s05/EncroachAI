@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0E14;
+  --color-surface: #131820;
+  --color-surface-elevated: #1B222D;
+  --color-amber: #F5A623;
+  --color-accent-amber: #F5A623;
+  --color-green: #2ECC71;
+  --color-accent-green: #2ECC71;
+  --color-red: #E74C3C;
+  --color-accent-red: #E74C3C;
+  --color-foreground: #F2F4F7;
+  --color-text-primary: #F2F4F7;
+  --color-text-secondary: #8B94A3;
+  --color-muted-foreground: #8B94A3;
+  --color-border: #242C38;
+  --color-muted: #242C38;
+  
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+:root {
+  --background: #0A0E14;
+  --surface: #131820;
+  --surface-elevated: #1B222D;
+  --accent-amber: #F5A623;
+  --accent-green: #2ECC71;
+  --accent-red: #E74C3C;
+  --text-primary: #F2F4F7;
+  --text-secondary: #8B94A3;
+  --border: #242C38;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0A0E14;
+  color: #F2F4F7;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* Professional Polish theme utility classes */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.border-glow {
+  box-shadow: 0 0 15px rgba(245, 166, 35, 0.12);
+}
+
+.border-glow-green {
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.12);
+}
+
+.border-glow-red {
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.12);
+}
+
+.bg-surface {
+  background-color: #131820;
+}
+
+.bg-surface-elevated {
+  background-color: #1B222D;
+}
+
+.text-amber {
+  color: #F5A623;
+}
+
+.text-green {
+  color: #2ECC71;
+}
+
+.text-red {
+  color: #E74C3C;
+}
+
+.border-muted {
+  border-color: #242C38;
+}
+
+/* Custom scrollbar for modern technical look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E14;
+}
+::-webkit-scrollbar-thumb {
+  background: #242C38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #364152;
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+.traffic-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(36, 44, 56, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(36, 44, 56, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-drift 20s linear infinite;
+}
+
+.radar-sweep {
+  background: conic-gradient(from 0deg at 50% 50%, rgba(245, 166, 35, 0) 0deg, rgba(245, 166, 35, 0.15) 60deg, transparent 65deg);
+}

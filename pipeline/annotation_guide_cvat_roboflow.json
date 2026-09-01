@@ -1,0 +1,78 @@
+{
+  "project_name": "EncroachAI_Chennai_Arterials",
+  "project_type": "object_detection",
+  "classes": [
+    {
+      "id": 0,
+      "name": "vendor_cart",
+      "color": "#F5A623",
+      "keyframe_hotkey": "1",
+      "description": "Mobile wooden or metal pushcarts selling fruits, flowers, snacks, tea, tender coconut.",
+      "attributes": [
+        {
+          "name": "mobility_state",
+          "type": "select",
+          "values": ["stationary", "in_motion", "idling_at_kerb"]
+        },
+        {
+          "name": "carriageway_intrusion",
+          "type": "select",
+          "values": ["kerbside_lane", "second_lane", "footpath_only"]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "double_parked_vehicle",
+      "color": "#FF5722",
+      "keyframe_hotkey": "2",
+      "description": "Two-wheelers, auto-rickshaws, app cabs, delivery vans halted/parked in vehicular lanes.",
+      "attributes": [
+        {
+          "name": "vehicle_type",
+          "type": "select",
+          "values": ["two_wheeler_cluster", "auto_rickshaw", "passenger_car", "delivery_van", "bus"]
+        },
+        {
+          "name": "engine_state",
+          "type": "select",
+          "values": ["driver_present_idling", "unattended_parked"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "illegal_stall",
+      "color": "#E91E63",
+      "keyframe_hotkey": "3",
+      "description": "Tarpaulin/bamboo roadside market extensions, vegetable crates, commercial display structures.",
+      "attributes": [
+        {
+          "name": "structure_type",
+          "type": "select",
+          "values": ["tarpaulin_canopy", "wooden_crate_display", "metal_rack", "banner_standee"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "pedestrian_spillover",
+      "color": "#9C27B0",
+      "keyframe_hotkey": "4",
+      "description": "Group or stream of pedestrians walking on vehicular roadway due to obstructed or missing footpath.",
+      "attributes": [
+        {
+          "name": "density",
+          "type": "select",
+          "values": ["individual", "small_cluster_2_4", "dense_crowd_5_plus"]
+        }
+      ]
+    }
+  ],
+  "annotation_rules": {
+    "box_tightness": "Draw tight bounding boxes around the physical footprint and superstructure.",
+    "crowd_grouping": "Annotate individual pedestrians if separated; annotate tight clusters with single 'pedestrian_spillover' box if boundary is contiguous.",
+    "occlusion_threshold": "Annotate objects if at least 25% visible.",
+    "min_pixel_size": "Skip objects smaller than 16x16 pixels in the distant background (> 80m from camera)."
+  }
+}

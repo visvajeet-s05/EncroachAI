@@ -1,0 +1,23 @@
+{
+  "provenance": "projected",
+  "byIntersectionCount": [
+    { "intersections": 2, "improvementPct": 12.4, "throughputGainPct": 8.5, "varianceReductionPct": 14.1, "provenance": "projected" },
+    { "intersections": 4, "improvementPct": 19.2, "throughputGainPct": 14.8, "varianceReductionPct": 21.6, "provenance": "projected" },
+    { "intersections": 6, "improvementPct": 24.6, "throughputGainPct": 18.9, "varianceReductionPct": 28.3, "provenance": "projected" },
+    { "intersections": 8, "improvementPct": 27.8, "throughputGainPct": 22.4, "varianceReductionPct": 32.7, "provenance": "projected" }
+  ],
+  "byDetectionErrorRate": [
+    { "errorRatePct": 0, "improvementPct": 28.4, "systemStability": 98.2, "provenance": "projected" },
+    { "errorRatePct": 5, "improvementPct": 26.1, "systemStability": 95.4, "provenance": "projected" },
+    { "errorRatePct": 10, "improvementPct": 22.8, "systemStability": 91.0, "provenance": "projected" },
+    { "errorRatePct": 15, "improvementPct": 18.9, "systemStability": 84.7, "provenance": "projected" },
+    { "errorRatePct": 20, "improvementPct": 15.2, "systemStability": 76.3, "provenance": "projected" },
+    { "errorRatePct": 30, "improvementPct": 8.6, "systemStability": 58.1, "provenance": "projected" }
+  ],
+  "modelAblation": [
+    { "configuration": "Static Webster Fixed Baseline", "maeWaitTime": 46.2, "throughputPcuHr": 1840, "greenWaveCoordinationPct": 12.0, "provenance": "projected" },
+    { "configuration": "Capacity-Agnostic Adaptive (SCATS-like)", "maeWaitTime": 36.8, "throughputPcuHr": 2150, "greenWaveCoordinationPct": 38.5, "provenance": "projected" },
+    { "configuration": "YOLOv10 Vision + Isolated Heuristic Timing", "maeWaitTime": 28.4, "throughputPcuHr": 2480, "greenWaveCoordinationPct": 46.0, "provenance": "projected" },
+    { "configuration": "EncroachAI (YOLOv10 Vision + ST-GNN Full Pipeline)", "maeWaitTime": 19.6, "throughputPcuHr": 2890, "greenWaveCoordinationPct": 78.4, "provenance": "projected" }
+  ]
+}

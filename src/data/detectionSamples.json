@@ -1,0 +1,350 @@
+[
+  {
+    "id": "sample-1",
+    "provenance": "projected",
+    "title": "T. Nagar Junction Approach - Northbound",
+    "location": "Usman Road, T. Nagar, Chennai",
+    "corridor": "Anna Salai - T. Nagar Connector",
+    "timestamp": "17:45 IST (Evening Peak)",
+    "nominalLanes": 3,
+    "effectiveLanes": 1.8,
+    "functionalCapacityPct": 62,
+    "primaryEncroachment": "vendor_cart",
+    "severity": "heavy",
+    "detections": [
+      {
+        "class": "vendor_cart",
+        "confidence": 0.94,
+        "bbox": [
+          8,
+          48,
+          22,
+          28
+        ],
+        "label": "Fruit & Tea Vendor Pushcart",
+        "laneImpactPct": 26
+      },
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.89,
+        "bbox": [
+          32,
+          54,
+          20,
+          24
+        ],
+        "label": "Delivery Auto-Rickshaw (Stopped)",
+        "laneImpactPct": 18
+      },
+      {
+        "class": "pedestrian_spillover",
+        "confidence": 0.86,
+        "bbox": [
+          5,
+          38,
+          16,
+          22
+        ],
+        "label": "Pedestrian Spillover onto Carriageway",
+        "laneImpactPct": 12
+      }
+    ],
+    "description": "Leftmost kerb lane completely obstructed by wooden pushcart vendors and idling delivery three-wheelers, forcing 3-lane approach into single-file bottleneck.",
+    "inferredBottleneck": "Kerbside friction restricts left-turn queue discharge by 38%, triggering severe upstream queue spillback.",
+    "imageTheme": "urban_market"
+  },
+  {
+    "id": "sample-2",
+    "provenance": "projected",
+    "title": "Mount Road Gemini Junction - East Flank",
+    "location": "Anna Salai (Mount Road), Chennai",
+    "corridor": "Arterial Corridor 1",
+    "timestamp": "09:15 IST (Morning Peak)",
+    "nominalLanes": 4,
+    "effectiveLanes": 2.9,
+    "functionalCapacityPct": 74,
+    "primaryEncroachment": "double_parked_vehicle",
+    "severity": "moderate",
+    "detections": [
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.93,
+        "bbox": [
+          65,
+          46,
+          24,
+          30
+        ],
+        "label": "Double-Parked Private Sedan",
+        "laneImpactPct": 22
+      },
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.88,
+        "bbox": [
+          48,
+          58,
+          18,
+          22
+        ],
+        "label": "Courier Two-Wheeler Cluster",
+        "laneImpactPct": 14
+      }
+    ],
+    "description": "Commercial office entrance with courier vans and private vehicles occupying outer transit lane despite 'No Stopping' signage.",
+    "inferredBottleneck": "Reduces saturation flow rate from 1,900 PCU/hr/lane to ~1,380 PCU/hr/lane.",
+    "imageTheme": "arterial_corridor"
+  },
+  {
+    "id": "sample-3",
+    "provenance": "projected",
+    "title": "Saidapet Bazaar Junction - Southbound",
+    "location": "Saidapet Market Road, Chennai",
+    "corridor": "Saidapet Transit Interchange",
+    "timestamp": "18:20 IST (Evening Peak)",
+    "nominalLanes": 2,
+    "effectiveLanes": 0.9,
+    "functionalCapacityPct": 46,
+    "primaryEncroachment": "illegal_stall",
+    "severity": "heavy",
+    "detections": [
+      {
+        "class": "illegal_stall",
+        "confidence": 0.96,
+        "bbox": [
+          4,
+          40,
+          28,
+          38
+        ],
+        "label": "Tarpaulin Flower & Veggie Stall",
+        "laneImpactPct": 34
+      },
+      {
+        "class": "vendor_cart",
+        "confidence": 0.91,
+        "bbox": [
+          34,
+          52,
+          19,
+          26
+        ],
+        "label": "Mobile Snack Cart",
+        "laneImpactPct": 18
+      },
+      {
+        "class": "pedestrian_spillover",
+        "confidence": 0.88,
+        "bbox": [
+          55,
+          42,
+          22,
+          28
+        ],
+        "label": "Bazaar Shoppers Crowd Incursion",
+        "laneImpactPct": 20
+      }
+    ],
+    "description": "Extended market stalls projecting 2.5m into designated carriageway; footpath completely unviable for pedestrian use.",
+    "inferredBottleneck": "Extreme lane friction drops vehicle clearance speed to under 8 km/h.",
+    "imageTheme": "dense_bazaar"
+  },
+  {
+    "id": "sample-4",
+    "provenance": "projected",
+    "title": "DMS Metro Interchange - Westbound Approach",
+    "location": "Anna Salai at DMS, Teynampet, Chennai",
+    "corridor": "Metro Phase-1 Feeder",
+    "timestamp": "14:10 IST (Inter-Peak)",
+    "nominalLanes": 4,
+    "effectiveLanes": 3.4,
+    "functionalCapacityPct": 86,
+    "primaryEncroachment": "double_parked_vehicle",
+    "severity": "light",
+    "detections": [
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.85,
+        "bbox": [
+          70,
+          50,
+          20,
+          26
+        ],
+        "label": "App-Taxi Drop-off Halting",
+        "laneImpactPct": 14
+      }
+    ],
+    "description": "Transient ride-hailing pickups near metro entrance creating intermittent turbulence in the curb lane.",
+    "inferredBottleneck": "Minor localized queue oscillation, quickly dissipated between signal green phases.",
+    "imageTheme": "metro_arterial"
+  },
+  {
+    "id": "sample-5",
+    "provenance": "projected",
+    "title": "Koyambedu Wholesale Market Corridor",
+    "location": "Jawaharlal Nehru Road (100 Ft Rd), Chennai",
+    "corridor": "Inner Ring Road Logistics Hub",
+    "timestamp": "06:40 IST (Morning Logistics Peak)",
+    "nominalLanes": 3,
+    "effectiveLanes": 1.5,
+    "functionalCapacityPct": 52,
+    "primaryEncroachment": "illegal_stall",
+    "severity": "heavy",
+    "detections": [
+      {
+        "class": "illegal_stall",
+        "confidence": 0.95,
+        "bbox": [
+          10,
+          44,
+          30,
+          36
+        ],
+        "label": "Vegetable Crate Sorting Encampment",
+        "laneImpactPct": 30
+      },
+      {
+        "class": "vendor_cart",
+        "confidence": 0.89,
+        "bbox": [
+          42,
+          54,
+          22,
+          24
+        ],
+        "label": "Loaded Handcart (Stationary)",
+        "laneImpactPct": 18
+      }
+    ],
+    "description": "Crates, hand-drawn carts, and bulk unloading activities occupying half of the roadway width.",
+    "inferredBottleneck": "Heavy commercial vehicles cannot clear intersection within standardized 45s phase.",
+    "imageTheme": "logistics_market"
+  },
+  {
+    "id": "sample-6",
+    "provenance": "projected",
+    "title": "Purasawalkam High Road Approach",
+    "location": "Purasawalkam High Road, Chennai",
+    "corridor": "Heritage Commercial Radial",
+    "timestamp": "19:10 IST (Festive Evening)",
+    "nominalLanes": 2,
+    "effectiveLanes": 1.1,
+    "functionalCapacityPct": 58,
+    "primaryEncroachment": "pedestrian_spillover",
+    "severity": "moderate",
+    "detections": [
+      {
+        "class": "pedestrian_spillover",
+        "confidence": 0.92,
+        "bbox": [
+          12,
+          35,
+          34,
+          42
+        ],
+        "label": "Retail Pedestrian Swarm in Carriageway",
+        "laneImpactPct": 26
+      },
+      {
+        "class": "vendor_cart",
+        "confidence": 0.87,
+        "bbox": [
+          52,
+          50,
+          18,
+          26
+        ],
+        "label": "Chat & Juice Kiosk Cart",
+        "laneImpactPct": 16
+      }
+    ],
+    "description": "Pedestrian sidewalk overflow combined with snack kiosks reducing dual-lane road to single crawling lane.",
+    "inferredBottleneck": "Shockwave propagation causes queue spillback through 2 upstream mini-roundabouts.",
+    "imageTheme": "heritage_commercial"
+  },
+  {
+    "id": "sample-7",
+    "provenance": "projected",
+    "title": "Guindy Kathipara Feeder Jn",
+    "location": "GST Road / Guindy Radial, Chennai",
+    "corridor": "Southern Arterial Highway Link",
+    "timestamp": "11:30 IST (Midday Stream)",
+    "nominalLanes": 4,
+    "effectiveLanes": 3.7,
+    "functionalCapacityPct": 92,
+    "primaryEncroachment": "double_parked_vehicle",
+    "severity": "light",
+    "detections": [
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.83,
+        "bbox": [
+          78,
+          56,
+          16,
+          22
+        ],
+        "label": "Two-Wheeler Repair Spillover",
+        "laneImpactPct": 8
+      }
+    ],
+    "description": "Minimal shoulder obstruction by a small mechanic shop, road operating close to design capacity.",
+    "inferredBottleneck": "Negligible signal impact; standard Webster green splits remain adequate.",
+    "imageTheme": "highway_feeder"
+  },
+  {
+    "id": "sample-8",
+    "provenance": "projected",
+    "title": "Mylapore Tank Junction Approach",
+    "location": "North Mada Street, Mylapore, Chennai",
+    "corridor": "Cultural Zone Corridor",
+    "timestamp": "17:15 IST (Evening Temple Rush)",
+    "nominalLanes": 2,
+    "effectiveLanes": 0.8,
+    "functionalCapacityPct": 42,
+    "primaryEncroachment": "illegal_stall",
+    "severity": "heavy",
+    "detections": [
+      {
+        "class": "illegal_stall",
+        "confidence": 0.97,
+        "bbox": [
+          6,
+          42,
+          32,
+          40
+        ],
+        "label": "Traditional Garland & Brassware Stall",
+        "laneImpactPct": 36
+      },
+      {
+        "class": "vendor_cart",
+        "confidence": 0.93,
+        "bbox": [
+          44,
+          48,
+          20,
+          28
+        ],
+        "label": "Tender Coconut Stall on Wheels",
+        "laneImpactPct": 22
+      },
+      {
+        "class": "pedestrian_spillover",
+        "confidence": 0.89,
+        "bbox": [
+          68,
+          38,
+          24,
+          34
+        ],
+        "label": "Temple Devotees Pedestrian Stream",
+        "laneImpactPct": 24
+      }
+    ],
+    "description": "Complex multi-modal encroachment where road width narrows by 58% over a 60-meter approach zone.",
+    "inferredBottleneck": "Severe capacity collapse requiring dynamic green-wave duration expansion from 32s to 64s.",
+    "imageTheme": "temple_cultural"
+  }
+]

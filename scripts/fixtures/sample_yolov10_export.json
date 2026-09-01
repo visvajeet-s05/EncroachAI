@@ -1,0 +1,89 @@
+[
+  {
+    "id": "exp-spencers-plaza-01",
+    "title": "Spencers Plaza / Thousand Lights Jn - Active Experiment Site",
+    "location": "Anna Salai (Mount Road) opposite Spencers Plaza, Chennai",
+    "corridor": "Anna Salai Arterial Corridor (Active Site #1)",
+    "timestamp": "17:30 IST (Evening Peak Field Observation)",
+    "nominalLanes": 4,
+    "predictions": [
+      {
+        "class": "vendor_cart",
+        "confidence": 0.96,
+        "xywhn": [0.18, 0.62, 0.16, 0.28],
+        "laneImpactPct": 22
+      },
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.94,
+        "xywhn": [0.42, 0.68, 0.20, 0.26],
+        "laneImpactPct": 20
+      },
+      {
+        "class": "pedestrian_spillover",
+        "confidence": 0.89,
+        "xywhn": [0.10, 0.52, 0.14, 0.24],
+        "laneImpactPct": 14
+      }
+    ],
+    "description": "Empirical video recording at Spencers Plaza intersection approach during peak evening commercial rush. Dual pushcart setup combined with two-wheeler cluster reduces effective roadway.",
+    "inferredBottleneck": "Kerb lane obstruction forces merging maneuver 45m upstream, reducing approach saturation flow by 34%.",
+    "imageTheme": "arterial_corridor"
+  },
+  {
+    "id": "exp-gemini-flyover-01",
+    "title": "Gemini Flyover / Cathedral Rd Jn - Active Experiment Site",
+    "location": "Anna Salai under Gemini Flyover, Chennai",
+    "corridor": "Anna Salai Arterial Corridor (Active Site #2)",
+    "timestamp": "09:40 IST (Morning Peak Field Observation)",
+    "nominalLanes": 4,
+    "predictions": [
+      {
+        "class": "double_parked_vehicle",
+        "confidence": 0.97,
+        "xywhn": [0.72, 0.60, 0.22, 0.30],
+        "laneImpactPct": 24
+      },
+      {
+        "class": "vendor_cart",
+        "confidence": 0.91,
+        "xywhn": [0.55, 0.65, 0.15, 0.22],
+        "laneImpactPct": 15
+      }
+    ],
+    "description": "High-velocity arterial approach bottlenecked by delivery three-wheelers and temporary beverage vendors near Cathedral Road turn-off.",
+    "inferredBottleneck": "Capacity drops from 5600 PCU to 3470 PCU, causing queue shockwave during arterial green phase.",
+    "imageTheme": "urban_market"
+  },
+  {
+    "id": "exp-nandanam-usman-01",
+    "title": "Nandanam / Chamiers Rd (Usman Connector) - Active Experiment Site",
+    "location": "Chamiers Road Junction, Nandanam, Chennai",
+    "corridor": "T. Nagar - Anna Salai Link (Active Site #3)",
+    "timestamp": "18:50 IST (Commercial Market Peak)",
+    "nominalLanes": 3,
+    "predictions": [
+      {
+        "class": "illegal_stall",
+        "confidence": 0.95,
+        "xywhn": [0.12, 0.58, 0.24, 0.35],
+        "laneImpactPct": 32
+      },
+      {
+        "class": "vendor_cart",
+        "confidence": 0.92,
+        "xywhn": [0.40, 0.64, 0.18, 0.25],
+        "laneImpactPct": 18
+      },
+      {
+        "class": "pedestrian_spillover",
+        "confidence": 0.88,
+        "xywhn": [0.26, 0.48, 0.16, 0.22],
+        "laneImpactPct": 15
+      }
+    ],
+    "description": "Commercial connector approach experiencing severe market spillover and roadside tarpaulin stalls narrowing carriageway to 1.4 effective lanes.",
+    "inferredBottleneck": "Effective approach capacity constricted by 53%, causing multi-cycle backlog without dynamic phase adjustment.",
+    "imageTheme": "dense_bazaar"
+  }
+]
