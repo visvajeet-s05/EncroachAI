@@ -1,6 +1,6 @@
 {
-  "name": "EncroachAI - Vision-Edge Traffic Signal Control",
-  "description": "Vision-Edge Traffic Signal Control Under Informal Road Encroachment using Spatial-Temporal Graph Neural Networks.",
+  "name": "EncroachAI — Vision-Edge Traffic Signal Control Under Road Encroachment",
+  "description": "Vision-Edge Traffic Signal Control Under Informal Road Encroachment using Spatial-Temporal Graph Neural Networks along the Anna Salai arterial corridor in Chennai, India.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

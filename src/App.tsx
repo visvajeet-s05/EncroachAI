@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { VALID_ROUTES, isValidRoute, AppRoute } from './lib/routes';
+import { NavigationProvider, useNavigation } from './context/NavigationContext';
 import { Home } from './pages/Home';
 import { Problem } from './pages/Problem';
 import { Architecture } from './pages/Architecture';
@@ -13,56 +13,35 @@ import { Results } from './pages/Results';
 import { Methodology } from './pages/Methodology';
 import { About } from './pages/About';
 
-export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<string>(() => {
-    const path = window.location.pathname;
-    return isValidRoute(path) ? path : '/';
-  });
-
-  const handleRouteChange = (route: string) => {
-    if (route === currentRoute) return;
-    setCurrentRoute(route);
-    window.history.pushState({}, '', route);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname;
-      setCurrentRoute(isValidRoute(path) ? path : '/');
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+function AppContent() {
+  const { currentRoute, navigate } = useNavigation();
 
   const renderPage = () => {
     switch (currentRoute) {
       case '/problem':
-        return <Problem onRouteChange={handleRouteChange} />;
+        return <Problem onRouteChange={navigate} />;
       case '/architecture':
-        return <Architecture onRouteChange={handleRouteChange} />;
+        return <Architecture onRouteChange={navigate} />;
       case '/demo':
-        return <Demo onRouteChange={handleRouteChange} />;
+        return <Demo onRouteChange={navigate} />;
       case '/simulation':
-        return <Simulation onRouteChange={handleRouteChange} />;
+        return <Simulation onRouteChange={navigate} />;
       case '/results':
-        return <Results onRouteChange={handleRouteChange} />;
+        return <Results onRouteChange={navigate} />;
       case '/methodology':
-        return <Methodology onRouteChange={handleRouteChange} />;
+        return <Methodology onRouteChange={navigate} />;
       case '/about':
-        return <About onRouteChange={handleRouteChange} />;
+        return <About onRouteChange={navigate} />;
       case '/':
       default:
-        return <Home onRouteChange={handleRouteChange} />;
+        return <Home onRouteChange={navigate} />;
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0A0E14] text-[#F2F4F7] selection:bg-[#F5A623] selection:text-[#0A0E14] font-sans antialiased overflow-x-hidden">
       {/* Sticky Header Navigation with Integrated Live Ticker */}
-      <Navbar currentRoute={currentRoute} onRouteChange={handleRouteChange} />
+      <Navbar currentRoute={currentRoute} onRouteChange={navigate} />
 
       {/* Main Content with Shared Motion Transitions and Error Boundary */}
       <main className="flex-1 w-full flex flex-col relative">
@@ -84,8 +63,16 @@ export default function App() {
       </main>
 
       {/* Persistent Footer */}
-      <Footer onRouteChange={handleRouteChange} />
+      <Footer onRouteChange={navigate} />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationProvider>
+      <AppContent />
+    </NavigationProvider>
   );
 }
 
