@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3000",
-    "build": "vite build",
+    "build": "vite build && node scripts/copy-build-artifacts.js",
     "preview": "vite preview",
-    "clean": "node -e \"const fs=require('fs'); try { fs.rmSync('dist', {recursive:true, force:true}); } catch(e){}\"",
+    "clean": "node -e \"const fs=require('fs'); ['dist', 'build', 'out'].forEach(d => { try { fs.rmSync(d, {recursive:true, force:true}); } catch(e){} });\"",
     "lint": "tsc --noEmit",
     "test": "tsx scripts/test-runner.ts",
     "import:detections": "tsx scripts/import-real-data.ts detections",

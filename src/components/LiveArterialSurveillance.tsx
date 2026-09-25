@@ -1072,19 +1072,6 @@ export const LiveArterialSurveillance: React.FC<LiveArterialSurveillanceProps> =
 
           </div>
 
-          {/* Action to Launch Full Operator SCADA Console */}
-          {onOpenTool && (
-            <div className="pt-2">
-              <button
-                onClick={onOpenTool}
-                className="w-full py-2.5 px-4 rounded-xl bg-[#F5A623] hover:bg-[#e09419] text-[#0A0E14] text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md shadow-[#F5A623]/20 cursor-pointer"
-              >
-                <span>Launch Operator SCADA Control Deck</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          )}
-
         </div>
 
       </div>
