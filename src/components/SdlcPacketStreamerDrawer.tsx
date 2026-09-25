@@ -120,7 +120,7 @@ export const SdlcPacketStreamerDrawer: React.FC<SdlcPacketStreamerDrawerProps> =
 
   // 1. Live 50ms Heartbeat Serial Generator
   useEffect(() => {
-    if (!isStreaming) return;
+    if (!isOpen || !isStreaming) return;
 
     const interval = setInterval(() => {
       setHeartbeatCount(c => c + 1);
@@ -185,10 +185,11 @@ export const SdlcPacketStreamerDrawer: React.FC<SdlcPacketStreamerDrawerProps> =
     }, 450); // fast readable rhythm
 
     return () => clearInterval(interval);
-  }, [isStreaming, activeJunctionName, currentGamma, currentExtensionSec]);
+  }, [isOpen, isStreaming, activeJunctionName, currentGamma, currentExtensionSec]);
 
   // 2. Oscilloscope Waveform Canvas (representing 50ms serial baud rate pulses)
   useEffect(() => {
+    if (!isOpen) return;
     const canvas = oscilloscopeCanvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -258,7 +259,7 @@ export const SdlcPacketStreamerDrawer: React.FC<SdlcPacketStreamerDrawerProps> =
     draw();
 
     return () => cancelAnimationFrame(animId);
-  }, [hardwareLinkStatus]);
+  }, [isOpen, hardwareLinkStatus]);
 
   // Auto-scroll to bottom of terminal
   useEffect(() => {

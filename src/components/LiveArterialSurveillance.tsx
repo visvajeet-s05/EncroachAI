@@ -202,18 +202,49 @@ export const LiveArterialSurveillance: React.FC<LiveArterialSurveillanceProps> =
   const greenExtensionSec = dynamicGreen - nominalGreen;
   const currentAssignedGreen = actuationMode === 'adaptive' ? dynamicGreen : nominalGreen;
 
-  // Sync external state changes
+  // Store onStateChange in ref so changing function instances in parent don't trigger re-renders
+  const onStateChangeRef = useRef(onStateChange);
   useEffect(() => {
-    if (onStateChange) {
-      onStateChange({
+    onStateChangeRef.current = onStateChange;
+  }, [onStateChange]);
+
+  const prevStateRef = useRef<{
+    gamma: number;
+    extensionSec: number;
+    activeObstaclesCount: number;
+    lostWidthM: number;
+    junctionName: string;
+  } | null>(null);
+
+  // Sync external state changes only when actual values change
+  useEffect(() => {
+    const prev = prevStateRef.current;
+    if (
+      !prev ||
+      prev.gamma !== gamma ||
+      prev.extensionSec !== greenExtensionSec ||
+      prev.activeObstaclesCount !== currentObstacles.length ||
+      prev.lostWidthM !== lostWidthM ||
+      prev.junctionName !== junctionConfig.name
+    ) {
+      prevStateRef.current = {
         gamma,
         extensionSec: greenExtensionSec,
         activeObstaclesCount: currentObstacles.length,
         lostWidthM,
         junctionName: junctionConfig.name
-      });
+      };
+      if (onStateChangeRef.current) {
+        onStateChangeRef.current({
+          gamma,
+          extensionSec: greenExtensionSec,
+          activeObstaclesCount: currentObstacles.length,
+          lostWidthM,
+          junctionName: junctionConfig.name
+        });
+      }
     }
-  }, [gamma, greenExtensionSec, currentObstacles.length, lostWidthM, junctionConfig.name, onStateChange]);
+  }, [gamma, greenExtensionSec, currentObstacles.length, lostWidthM, junctionConfig.name]);
 
   // Sync when selected junction changes
   const handleSelectJunction = (id: string) => {
@@ -347,31 +378,35 @@ export const LiveArterialSurveillance: React.FC<LiveArterialSurveillanceProps> =
 
     // In Emergency Green Wave mode, lock directly to GREEN
     if (scadaMode === 'EMERGENCY_GREEN_WAVE') {
-      setSignalPhase('GREEN');
-      setPhaseSecondsLeft(88);
+      setSignalPhase(p => p !== 'GREEN' ? 'GREEN' : p);
+      setPhaseSecondsLeft(s => s !== 88 ? 88 : s);
       return;
     }
 
     // In Manual Force Green Hold, keep on green
     if (forceGreenHold) {
-      setSignalPhase('GREEN');
-      setPhaseSecondsLeft(99);
+      setSignalPhase(p => p !== 'GREEN' ? 'GREEN' : p);
+      setPhaseSecondsLeft(s => s !== 99 ? 99 : s);
       return;
     }
 
     const timer = setInterval(() => {
       setPhaseSecondsLeft((prev) => {
         if (prev <= 1) {
+          let nextPhase: 'GREEN' | 'AMBER' | 'RED';
+          let nextSec: number;
           if (signalPhase === 'GREEN') {
-            setSignalPhase('AMBER');
-            return 4; // 4s amber
+            nextPhase = 'AMBER';
+            nextSec = 4; // 4s amber
           } else if (signalPhase === 'AMBER') {
-            setSignalPhase('RED');
-            return 26; // 26s red
+            nextPhase = 'RED';
+            nextSec = 26; // 26s red
           } else {
-            setSignalPhase('GREEN');
-            return currentAssignedGreen;
+            nextPhase = 'GREEN';
+            nextSec = currentAssignedGreen;
           }
+          setTimeout(() => setSignalPhase(nextPhase), 0);
+          return nextSec;
         }
         return prev - 1;
       });

@@ -121,6 +121,25 @@ export const Home: React.FC<HomeProps> = ({ onRouteChange }) => {
     junctionName: 'Spencers / Thousand Lights'
   });
 
+  const handleStreamStateChange = React.useCallback((st: { gamma: number; extensionSec: number; activeObstaclesCount: number; lostWidthM: number; junctionName: string }) => {
+    setLiveStreamState(prev => {
+      if (
+        prev.gamma === st.gamma &&
+        prev.extensionSec === st.extensionSec &&
+        prev.activeObstaclesCount === st.activeObstaclesCount &&
+        prev.lostWidthM === st.lostWidthM &&
+        prev.junctionName === st.junctionName
+      ) {
+        return prev;
+      }
+      return st;
+    });
+  }, []);
+
+  const handleJunctionSelect = React.useCallback((id: string) => {
+    setSelectedJunctionId(id);
+  }, []);
+
   const selectedJunction = corridorData.intersections.find(j => j.id === selectedJunctionId) || corridorData.intersections[1];
 
   // Live IST Clock
@@ -237,13 +256,6 @@ export const Home: React.FC<HomeProps> = ({ onRouteChange }) => {
               <Terminal className="w-4 h-4" />
               <span>SDLC Serial Bus</span>
             </button>
-
-            <button
-              onClick={() => onRouteChange('/about')}
-              className="px-3.5 py-2.5 rounded-xl bg-[#11161F] hover:bg-[#1A222D] text-[#8B94A3] hover:text-white text-xs border border-[#222B38] transition-colors cursor-pointer"
-            >
-              <span>Architecture Spec</span>
-            </button>
           </div>
         </div>
 
@@ -317,10 +329,10 @@ export const Home: React.FC<HomeProps> = ({ onRouteChange }) => {
         {activeTab === 'surveillance' ? (
           <LiveArterialSurveillance
             initialJunctionId={selectedJunctionId}
-            onJunctionSelect={(id) => setSelectedJunctionId(id)}
+            onJunctionSelect={handleJunctionSelect}
             onOpenTool={() => onRouteChange('/tool')}
             onOpenSdlcDrawer={() => setIsSdlcDrawerOpen(true)}
-            onStateChange={(st) => setLiveStreamState(st)}
+            onStateChange={handleStreamStateChange}
           />
         ) : (
           <CssIsometricJunction />

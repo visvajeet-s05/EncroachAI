@@ -16,9 +16,8 @@ interface NavbarProps {
 }
 
 const navItems = [
-  { id: 'home', label: 'Corridor Overview', path: '/', icon: HomeIcon },
-  { id: 'tool', label: 'Actuation Console', path: '/tool', icon: Sliders },
-  { id: 'about', label: 'System Architecture', path: '/about', icon: User },
+  { id: 'home', label: 'Corridor Operations Dashboard', path: '/', icon: HomeIcon },
+  { id: 'tool', label: 'SCADA Actuation Console', path: '/tool', icon: Sliders },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) => {

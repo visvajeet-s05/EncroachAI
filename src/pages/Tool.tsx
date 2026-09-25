@@ -102,6 +102,21 @@ export const Tool: React.FC<ToolProps> = ({ onRouteChange }) => {
     junctionName: 'Spencers / Thousand Lights'
   });
 
+  const handleCorridorStateChange = React.useCallback((st: { gamma: number; extensionSec: number; activeObstaclesCount: number; lostWidthM: number; junctionName: string }) => {
+    setLiveCorridorState(prev => {
+      if (
+        prev.gamma === st.gamma &&
+        prev.extensionSec === st.extensionSec &&
+        prev.activeObstaclesCount === st.activeObstaclesCount &&
+        prev.lostWidthM === st.lostWidthM &&
+        prev.junctionName === st.junctionName
+      ) {
+        return prev;
+      }
+      return st;
+    });
+  }, []);
+
   // Forensic Sample State
   const samples = detectionSamplesData as DetectionSample[];
   const [selectedSampleId, setSelectedSampleId] = useState<string>(samples[0]?.id || 'sample-1');
@@ -658,7 +673,7 @@ export const Tool: React.FC<ToolProps> = ({ onRouteChange }) => {
               scadaMode={scadaMode}
               forceGreenHold={forceGreenHold}
               onOpenSdlcDrawer={() => setIsSdlcDrawerOpen(true)}
-              onStateChange={(st) => setLiveCorridorState(st)}
+              onStateChange={handleCorridorStateChange}
             />
           </div>
         )}

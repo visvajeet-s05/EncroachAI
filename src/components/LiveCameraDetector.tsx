@@ -82,17 +82,20 @@ export const LiveCameraDetector: React.FC = () => {
     const timer = setInterval(() => {
       setPhaseSecondsLeft((prev) => {
         if (prev <= 1) {
+          let nextPhase: 'GREEN' | 'AMBER' | 'RED';
+          let nextSec: number;
           if (signalPhase === 'GREEN') {
-            setSignalPhase('AMBER');
-            return 4;
+            nextPhase = 'AMBER';
+            nextSec = 4;
           } else if (signalPhase === 'AMBER') {
-            setSignalPhase('RED');
-            return 26;
+            nextPhase = 'RED';
+            nextSec = 26;
           } else {
-            setSignalPhase('GREEN');
-            const dynamicGreen = Math.min(68, Math.round(38 / (usableCapacityPct / 100)));
-            return dynamicGreen;
+            nextPhase = 'GREEN';
+            nextSec = Math.min(68, Math.round(38 / (usableCapacityPct / 100)));
           }
+          setTimeout(() => setSignalPhase(nextPhase), 0);
+          return nextSec;
         }
         return prev - 1;
       });

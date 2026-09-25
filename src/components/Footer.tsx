@@ -27,25 +27,19 @@ export const Footer: React.FC<FooterProps> = ({ onRouteChange }) => {
           </span>
         </div>
 
-        {/* 3 Page Navigation Links */}
+        {/* Operational Navigation Links */}
         <div className="flex items-center gap-5 flex-wrap justify-center">
           <button
             onClick={() => onRouteChange('/')}
             className="hover:text-white transition-colors cursor-pointer"
           >
-            Overview
+            Corridor Operations Dashboard
           </button>
           <button
             onClick={() => onRouteChange('/tool')}
             className="hover:text-white transition-colors cursor-pointer text-[#F5A623] font-semibold"
           >
-            Actuation Console
-          </button>
-          <button
-            onClick={() => onRouteChange('/about')}
-            className="hover:text-white transition-colors cursor-pointer"
-          >
-            System Architecture
+            SCADA Actuation Console
           </button>
           <span className="text-[#334155]">•</span>
           <a
@@ -55,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ onRouteChange }) => {
             className="hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
             <Github className="w-3.5 h-3.5 text-[#F5A623]" />
-            <span>Architecture Source</span>
+            <span>Firmware Spec</span>
           </a>
         </div>
 
