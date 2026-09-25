@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EncroachAI — Additional Simulation Detectors & Encroachment Bottlenecks
+  E2 (Lane Area Detectors) placed at 150m upstream on arterial approaches.
+-->
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <!-- Approach E2 Detectors for int-1 (Spencers Plaza) -->
+    <laneAreaDetector id="e2_spencers_sb_0" lane="edge_entry_spencers_0" pos="50" endPos="150" freq="60" file="detector_spencers.xml"/>
+    <laneAreaDetector id="e2_spencers_sb_1" lane="edge_entry_spencers_1" pos="50" endPos="150" freq="60" file="detector_spencers.xml"/>
+    <laneAreaDetector id="e2_spencers_sb_2" lane="edge_entry_spencers_2" pos="50" endPos="150" freq="60" file="detector_spencers.xml"/>
+    <laneAreaDetector id="e2_spencers_sb_3" lane="edge_entry_spencers_3" pos="50" endPos="150" freq="60" file="detector_spencers.xml"/>
+
+    <!-- Approach E2 Detectors for int-3 (Gemini Flyover) -->
+    <laneAreaDetector id="e2_gemini_sb_0" lane="edge_tlights_gemini_0" pos="40" endPos="140" freq="60" file="detector_gemini.xml"/>
+    <laneAreaDetector id="e2_gemini_sb_1" lane="edge_tlights_gemini_1" pos="40" endPos="140" freq="60" file="detector_gemini.xml"/>
+    <laneAreaDetector id="e2_gemini_sb_2" lane="edge_tlights_gemini_2" pos="40" endPos="140" freq="60" file="detector_gemini.xml"/>
+
+    <!-- Approach E2 Detectors for int-5 (Nandanam / Usman Rd) -->
+    <laneAreaDetector id="e2_nandanam_sb_0" lane="edge_dms_nandanam_0" pos="50" endPos="150" freq="60" file="detector_nandanam.xml"/>
+    <laneAreaDetector id="e2_nandanam_sb_1" lane="edge_dms_nandanam_1" pos="50" endPos="150" freq="60" file="detector_nandanam.xml"/>
+    <laneAreaDetector id="e2_nandanam_sb_2" lane="edge_dms_nandanam_2" pos="50" endPos="150" freq="60" file="detector_nandanam.xml"/>
+    <laneAreaDetector id="e2_nandanam_sb_3" lane="edge_dms_nandanam_3" pos="50" endPos="150" freq="60" file="detector_nandanam.xml"/>
+
+    <!-- Rerouters for dynamic lateral spillover if outer lane is encroached -->
+    <rerouter id="rerouter_spencers" edges="edge_entry_spencers">
+        <interval begin="0" end="3600">
+            <closingLaneReroute id="edge_entry_spencers_0"/>
+        </interval>
+    </rerouter>
+</additional>

@@ -1,12 +1,7 @@
 export const VALID_ROUTES = [
   '/',
-  '/problem',
-  '/architecture',
-  '/demo',
-  '/simulation',
-  '/results',
-  '/methodology',
-  '/about'
+  '/about',
+  '/tool'
 ] as const;
 
 export type AppRoute = typeof VALID_ROUTES[number];

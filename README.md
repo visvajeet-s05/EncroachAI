@@ -24,7 +24,7 @@ EncroachAI is built as a **pure static Single-Page Application (SPA)** with clie
 ### 2. Installation
 ```bash
 # Clone the repository
-git clone https://github.com/visvajeet-s05/encroachai.git
+git clone https://github.com/encroachai/encroachai.git
 cd encroachai
 
 # Install dependencies
@@ -57,7 +57,7 @@ Vite will start the local development server at `http://localhost:3000` (or `htt
 
 This repository is pre-configured for static deployment on Vercel:
 
-1. Push your repository to GitHub: `https://github.com/visvajeet-s05/encroachai`
+1. Push your repository to GitHub: `https://github.com/encroachai/encroachai`
 2. Log in to [Vercel](https://vercel.com) and click **"Add New Project"**.
 3. Import the GitHub repository.
 4. Vercel will automatically detect `vercel.json` and configure:

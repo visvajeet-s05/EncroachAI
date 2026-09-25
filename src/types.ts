@@ -34,6 +34,7 @@ export interface DetectionSample {
   description: string;
   inferredBottleneck: string;
   imageTheme: string;
+  imageUrl?: string;
 }
 
 export interface ApproachWaitTime {

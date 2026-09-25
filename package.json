@@ -4,16 +4,19 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0 --port 3000",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "node -e \"const fs=require('fs'); try { fs.rmSync('dist', {recursive:true, force:true}); } catch(e){}\"",
     "lint": "tsc --noEmit",
+    "test": "tsx scripts/test-runner.ts",
     "import:detections": "tsx scripts/import-real-data.ts detections",
     "import:simulation": "tsx scripts/import-real-data.ts simulation"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs": "^4.22.0",
     "@types/canvas-confetti": "^1.9.0",
     "@types/three": "^0.185.4",
     "@vitejs/plugin-react": "^5.0.4",

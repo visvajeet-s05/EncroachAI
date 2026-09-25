@@ -148,8 +148,17 @@ export const DetectionCard: React.FC<DetectionCardProps> = ({
     >
       {/* Visual Canvas with Overlays */}
       <div className="relative aspect-[16/10] w-full bg-[#0A0E14] overflow-hidden group">
-        {/* Synthetic Frame */}
-        {renderSyntheticUrbanScene()}
+        {/* Frame: User-uploaded image or Synthetic Canvas Scene */}
+        {sample.imageUrl ? (
+          <img
+            src={sample.imageUrl}
+            alt={sample.title}
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          renderSyntheticUrbanScene()
+        )}
 
         {/* YOLOv10 Dynamic Overlays */}
         {showOverlays && (

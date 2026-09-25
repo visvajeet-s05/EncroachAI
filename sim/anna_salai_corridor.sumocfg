@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EncroachAI — Anna Salai Arterial Corridor Simulation (Chennai, India)
+  7 Intersections: Spencers Plaza, Thousand Lights, Gemini Flyover, DMS Metro, Nandanam, Saidapet, Guindy
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+    <input>
+        <net-file value="anna_salai_corridor.net.xml"/>
+        <route-files value="corridor.rou.xml"/>
+        <additional-files value="encroachment.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="1.0"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="-1"/>
+        <collision.action value="none"/>
+        <lateral-resolution value="0.8"/>
+    </processing>
+
+    <routing>
+        <device.rerouting.probability value="0.25"/>
+    </routing>
+
+    <report>
+        <verbose value="true"/>
+        <no-step-log value="true"/>
+        <duration-log.statistics value="true"/>
+    </report>
+
+    <gui_only>
+        <start value="true"/>
+        <gui-settings-file value=""/>
+    </gui_only>
+</configuration>

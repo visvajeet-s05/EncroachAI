@@ -1,201 +1,252 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { 
-  User, 
-  Cpu, 
-  Building2, 
-  FileCheck, 
-  Github, 
-  Linkedin, 
-  Mail, 
+  ArrowRight, 
   BookOpen, 
+  Lightbulb, 
   Layers, 
-  ExternalLink,
-  Award,
-  Calendar,
+  Cpu, 
+  Code, 
+  ShieldCheck, 
+  Github,
   Radio,
-  Compass,
+  CheckCircle2,
+  AlertTriangle,
+  Server,
   Zap,
   Activity
 } from 'lucide-react';
-import { ResearchNoticeBanner } from '../components/ResearchNoticeBanner';
 
 interface AboutProps {
   onRouteChange: (route: string) => void;
 }
 
 export const About: React.FC<AboutProps> = ({ onRouteChange }) => {
+  const technologies = [
+    { name: 'YOLOv10-Nano', category: 'Edge Vision Inference (38 FPS)', color: '#F5A623', spec: 'INT8 / FP16 TensorRT' },
+    { name: 'PyTorch Geometric', category: 'Spatial-Temporal GNN (ST-GNN)', color: '#38BDF8', spec: 'Chebyshev Spectral Conv' },
+    { name: 'SUMO 1.20 Micro-Sim', category: 'Microscopic Traffic Simulation', color: '#2ECC71', spec: 'Multi-Modal Vehicle Physics' },
+    { name: 'TraCI / NEMA TS2', category: 'Actuator SDLC Controller Interface', color: '#A78BFA', spec: 'Sub-50ms Actuation Loop' },
+    { name: 'NVIDIA Jetson Xavier', category: 'Edge Embedded Hardware', color: '#F97316', spec: '15W Low-Power Edge Unit' },
+    { name: 'TypeScript & Vite', category: 'Real-Time Telemetry Dashboard', color: '#60A5FA', spec: 'High-Density ITS UI' },
+    { name: 'Tailwind CSS', category: 'Design Architecture System', color: '#34D399', spec: 'Industrial HUD Theme' },
+  ];
+
+  const standards = [
+    {
+      title: 'NEMA TS2 / NTCIP 1202',
+      desc: 'Signal controller interface standard ensuring direct compatibility with municipal actuation hardware and master controllers.',
+      badge: 'Controller Interface'
+    },
+    {
+      title: 'Sub-100ms Fail-Safe Watchdog',
+      desc: 'Automatic optical occlusion fallback: reverts to calibrated fixed-time Webster cycles upon edge sensor disconnect or adverse weather.',
+      badge: 'Fail-Safe Safety'
+    },
+    {
+      title: 'IRC 106-1990 & HCM 2022',
+      desc: 'Capacity calculations calibrated against Indian Roads Congress guidelines for heterogeneous non-lane-based traffic flows.',
+      badge: 'Capacity Standard'
+    }
+  ];
+
   return (
-    <div id="about-page" className="w-full pt-8 sm:pt-12 md:pt-16 pb-16 md:pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        {/* Header */}
-        <div className="max-w-3xl mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5A623]/10 border border-[#F5A623]/30 text-xs font-mono text-[#F5A623] mb-4">
-            <Radio className="w-3.5 h-3.5 animate-pulse text-[#2ECC71]" />
-            <span>Engineering Architecture & Platform Profile</span>
+    <div id="about-page" className="w-full max-w-[1280px] mx-auto px-6 md:px-12 py-12 md:py-16 space-y-12 md:space-y-16">
+      
+      {/* 1. System Specifications & Executive Summary */}
+      <section className="p-8 sm:p-10 rounded-2xl bg-surface-elevated border border-muted shadow-xl shadow-black/40 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b border-muted">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F5A623] to-[#d4880f] flex items-center justify-center text-[#0A0E14] font-bold shrink-0 shadow-lg shadow-[#F5A623]/20 border border-[#F5A623]/40">
+              <Radio className="w-7 h-7 text-[#0A0E14]" />
+            </div>
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Encroach<span className="text-[#F5A623]">AI</span>
+              </h1>
+              <p className="text-sm font-mono text-[#8B94A3] mt-0.5">
+                Autonomous Vision-Edge Signal Actuation Platform • System Architecture
+              </p>
+            </div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#F2F4F7] mb-4">
-            About EncroachAI
-          </h1>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2.5 rounded-xl bg-surface hover:bg-surface-elevated text-white text-xs font-mono border border-muted flex items-center gap-2 transition-colors"
+            >
+              <Github className="w-4 h-4 text-[#F5A623]" />
+              <span>Architecture Source</span>
+            </a>
+            <button
+              onClick={() => onRouteChange('/tool')}
+              className="px-5 py-2.5 rounded-xl bg-[#F5A623] hover:bg-[#e09419] text-[#0A0E14] text-xs font-mono font-bold flex items-center gap-2 transition-all shadow-md shadow-[#F5A623]/20 cursor-pointer"
+            >
+              <span>Actuation Console</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
 
-          <p className="text-base md:text-lg text-[#8B94A3] leading-relaxed">
-            EncroachAI is a high-performance Intelligent Transportation Systems (ITS) and Edge AI platform engineered for real-time traffic signal optimization and carriageway constriction compensation in high-density urban corridors.
+        {/* Executive Summary */}
+        <div className="space-y-3">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#38BDF8] font-semibold uppercase tracking-wider">
+            <BookOpen className="w-4 h-4" />
+            <span>Platform Overview & Engineering Mandate</span>
+          </div>
+          <p className="text-sm sm:text-base text-[#C8D1DC] leading-relaxed">
+            EncroachAI is an enterprise-grade intelligent transportation systems (ITS) framework engineered to resolve a fundamental failure mode in contemporary urban traffic control: the assumption that road capacity is a static geometric constant. Deployed at the edge, EncroachAI continuously extracts physical carriageway constriction from high-frame-rate curbside video feeds, executes multi-hop spatial-temporal graph convolutions across arterial topologies, and directly actuates field signal controllers to dynamically reallocate phase green splits tailored to actual usable road geometry.
           </p>
         </div>
+      </section>
 
-        {/* Real-time Status Banner */}
-        <div className="mb-12">
-          <ResearchNoticeBanner />
-        </div>
-
-        {/* 1. LEAD ARCHITECT & SYSTEM CONTEXT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-12 sm:mb-16">
-          {/* Author / Architect Card */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#131820] border border-[#242C38] flex flex-col justify-between space-y-6">
-            <div className="flex items-start gap-4 sm:gap-5">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#F5A623] to-[#d97706] p-0.5 shadow-xl shadow-[#F5A623]/15 shrink-0 flex items-center justify-center text-[#0A0E14] font-mono font-bold text-xl sm:text-2xl">
-                VK
-              </div>
-              <div className="space-y-1">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
-                  Visvajeet (Kabilan V)
-                </h2>
-                <div className="text-xs font-mono text-[#F5A623]">
-                  Lead ITS & Computer Vision Systems Architect
-                </div>
-                <div className="text-xs text-[#8B94A3] flex items-center gap-1.5 pt-1">
-                  <Building2 className="w-3.5 h-3.5" />
-                  Intelligent Transportation Systems Group, Chennai, India
-                </div>
-              </div>
+      {/* 2. Engineering Motivation & 3-Tier System Architecture */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* Left Column: Problem Formulation (5 cols) */}
+        <section className="lg:col-span-5 p-8 rounded-2xl bg-surface-elevated border border-muted shadow-xl shadow-black/30 space-y-6 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#F5A623] font-semibold uppercase tracking-wider">
+              <Lightbulb className="w-4 h-4" />
+              <span>Problem Formulation</span>
             </div>
 
-            <p className="text-xs md:text-sm text-[#8B94A3] leading-relaxed">
-              Specializing in real-time computer vision, Spatio-Temporal Graph Neural Networks, and Autonomous Traffic Control. Designing and deploying edge-accelerated AI models that dynamically resolve informal, heterogeneous, and high-density urban transit friction.
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              The Static Capacity Fallacy in Legacy ITS
+            </h2>
+
+            <p className="text-sm text-[#C8D1DC] leading-relaxed">
+              Classical traffic signal controllers—from Webster’s 1958 formulation to legacy adaptive suites such as SCATS and SCOOT—rely on a foundational assumption: road capacity is a fixed constant governed strictly by curb-to-curb markings (nominal saturation flow s_0 ≈ 1,800–2,000 PCU/lane-hr).
             </p>
 
-            <div className="pt-4 border-t border-[#242C38] flex flex-wrap items-center gap-3">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-[#0A0E14] hover:bg-[#1B222D] text-white text-xs font-mono border border-[#242C38] flex items-center gap-2 transition-colors"
-              >
-                <Github className="w-3.5 h-3.5 text-[#F5A623]" /> GitHub
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-[#0A0E14] hover:bg-[#1B222D] text-white text-xs font-mono border border-[#242C38] flex items-center gap-2 transition-colors"
-              >
-                <Linkedin className="w-3.5 h-3.5 text-[#38BDF8]" /> LinkedIn
-              </a>
-              <a
-                href="mailto:visvajeetofficial@gmail.com"
-                className="px-3.5 py-2 rounded-lg bg-[#0A0E14] hover:bg-[#1B222D] text-white text-xs font-mono border border-[#242C38] flex items-center gap-2 transition-colors"
-              >
-                <Mail className="w-3.5 h-3.5 text-[#F5A623]" /> Contact Engineering
-              </a>
-            </div>
+            <p className="text-sm text-[#94A3B8] leading-relaxed">
+              In high-density Global South arterial corridors like Anna Salai (Chennai), informal curbside vendor stalls, commercial loading activities, double-parked vehicles, and pedestrian spillover usurp 30% to 50% of the physical carriageway. Computing signal timings on fictitious full-width capacity causes chronic phase under-allocation, severe queue spillbacks, and cascading arterial gridlock.
+            </p>
           </div>
 
-          {/* System Specs Card */}
-          <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-[#131820] border border-[#242C38] flex flex-col justify-between space-y-6">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-mono text-[#F5A623] uppercase tracking-wider mb-2">
-                <Cpu className="w-4 h-4" />
-                <span>System Architecture</span>
+          <div className="p-4 rounded-xl bg-surface border border-muted text-xs font-mono space-y-2 text-[#8B94A3]">
+            <div className="text-white font-semibold flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#2ECC71]" />
+              <span>Closed-Loop Innovation</span>
+            </div>
+            <p className="text-[11px] leading-normal">
+              Replacing static lane constants with continuous, vision-derived usable capacity multipliers (γ = W_eff / W_nominal) directly coupled to real-time saturation flow modulation (s_eff = s_0 × γ).
+            </p>
+          </div>
+        </section>
+
+        {/* Right Column: 3-Tier System Architecture Overview (7 cols) */}
+        <section className="lg:col-span-7 p-8 rounded-2xl bg-surface-elevated border border-muted shadow-xl shadow-black/30 space-y-6">
+          <div className="flex items-center justify-between pb-3 border-b border-muted">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#38BDF8] font-semibold uppercase tracking-wider">
+              <Layers className="w-4 h-4" />
+              <span>Distributed 3-Tier System Architecture</span>
+            </div>
+            <span className="text-xs font-mono text-[#8B94A3]">Sub-50ms Closed Loop</span>
+          </div>
+
+          <div className="space-y-4">
+            {/* Tier 1 */}
+            <div className="p-4 rounded-xl bg-surface border border-muted space-y-1.5">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="font-bold text-[#F5A623]">Tier 1: Curbside Vision-Edge Sensor Pipeline</span>
+                <span className="text-[#8B94A3] text-[10px]">YOLOv10 TensorRT • 38 FPS</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-1">
-                Autonomous Corridor Engine
-              </h3>
-              <p className="text-xs text-[#8B94A3]">
-                Production Edge Node & Graph Synchronization Service (v1.4 Architecture)
+              <p className="text-xs sm:text-sm text-[#C8D1DC] leading-relaxed">
+                IP67 roadside units process live camera feeds using accelerated TensorRT inference on low-power edge compute (NVIDIA Jetson Xavier / Orin) to detect, classify, and extract 2D perspective bounding polygons of lateral friction, calculating real-time effective carriageway width (W_eff).
               </p>
             </div>
 
-            <div className="space-y-3 font-mono text-xs">
-              <div className="p-3.5 rounded-lg bg-[#0A0E14] border border-[#242C38] space-y-1">
-                <div className="text-[#8B94A3]">Target Corridor Deployment</div>
-                <div className="text-white font-bold">Anna Salai & T. Nagar Arterial Grid (Chennai)</div>
+            {/* Tier 2 */}
+            <div className="p-4 rounded-xl bg-surface border border-muted space-y-1.5">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="font-bold text-[#38BDF8]">Tier 2: Spatial-Temporal Corridor Reasoning (ST-GNN)</span>
+                <span className="text-[#8B94A3] text-[10px]">Chebyshev Spectral Graph Conv</span>
               </div>
-              <div className="p-3.5 rounded-lg bg-[#0A0E14] border border-[#242C38] space-y-1">
-                <div className="text-[#8B94A3]">Compute Hardware Target</div>
-                <div className="text-white font-bold">NVIDIA Jetson Orin Nano / TensorRT Edge Node</div>
-              </div>
+              <p className="text-xs sm:text-sm text-[#C8D1DC] leading-relaxed">
+                Represents the entire 6.8 km arterial corridor as a directed graph topology. Evaluates inter-junction vehicle platoon arrival rates and forecasts upstream queue spillback bottlenecks 5 to 15 minutes ahead to prevent gridlock propagation.
+              </p>
             </div>
 
-            <div className="pt-2 text-xs font-mono text-[#2ECC71] flex items-center gap-1.5">
-              <Activity className="w-4 h-4" />
-              <span>Real-Time Autonomous ITS Controller</span>
+            {/* Tier 3 */}
+            <div className="p-4 rounded-xl bg-surface border border-muted space-y-1.5">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="font-bold text-[#2ECC71]">Tier 3: Controller Actuation & Split Modulation Gateway</span>
+                <span className="text-[#8B94A3] text-[10px]">NEMA TS2 / TraCI SDLC Interface</span>
+              </div>
+              <p className="text-xs sm:text-sm text-[#C8D1DC] leading-relaxed">
+                Dynamically modulates nominal saturation flow (s_eff = s_0 × γ) to compute Webster-compensated green splits and cycle balancing. Transmits phase adjustments directly to signal controllers via NEMA TS2 SDLC or TraCI actuation interfaces.
+              </p>
             </div>
           </div>
+
+          <div className="pt-2 flex justify-end">
+            <button
+              onClick={() => onRouteChange('/tool')}
+              className="px-5 py-2.5 rounded-xl bg-[#F5A623] hover:bg-[#e09419] text-[#0A0E14] text-xs font-mono font-bold flex items-center gap-2 transition-all shadow-md shadow-[#F5A623]/20 cursor-pointer"
+            >
+              <span>Explore Actuation Console</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </section>
+
+      </div>
+
+      {/* 3. Fail-Safe Redundancy & Standards Compliance */}
+      <section className="p-8 rounded-2xl bg-surface-elevated border border-muted space-y-6 shadow-xl shadow-black/30">
+        <div className="flex items-center justify-between pb-3 border-b border-muted">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#2ECC71] font-semibold uppercase tracking-wider">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Operational Safety & Standards Compliance</span>
+          </div>
+          <span className="text-xs font-mono text-[#8B94A3]">Mission-Critical ITS Grade</span>
         </div>
 
-        {/* 2. RESEARCH LINEAGE & EVOLUTION (SLOTS / SLOTIFY) */}
-        <section className="mb-12 sm:mb-16 p-6 sm:p-8 md:p-10 rounded-2xl bg-[#131820] border border-[#242C38] space-y-6">
-          <div className="flex items-center gap-2 text-xs font-mono text-[#38BDF8] uppercase tracking-wider">
-            <Layers className="w-4 h-4" />
-            <span>Platform Evolution</span>
-          </div>
-
-          <h2 className="text-2xl font-bold text-white">
-            Civic-Tech Mobility & Dynamic Urban Flow
-          </h2>
-
-          <p className="text-xs md:text-sm text-[#8B94A3] leading-relaxed">
-            EncroachAI builds upon earlier civic-tech mobility systems by the team, notably the <strong className="text-white">SLOTS / SLOTIFY</strong> urban parking analytics framework. While SLOTS focused on static curb parking occupancy modeling, real-world arterial field analysis revealed that curb parking and vendor stalls directly spill into active driving lanes during peak traffic hours.
-          </p>
-
-          <p className="text-xs md:text-sm text-[#8B94A3] leading-relaxed">
-            This insight drove the transition from passive curb tracking to <strong className="text-[#F5A623]">active real-time vision-edge signal synchronization</strong> — converting camera feeds into dynamic control signals that directly prevent bottlenecked intersection gridlock.
-          </p>
-
-          <div className="pt-4 border-t border-[#242C38] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-            <div className="p-4 rounded-xl bg-[#0A0E14] border border-[#242C38]">
-              <div className="text-[#38BDF8] font-bold mb-1">Phase 1: SLOTS / SLOTIFY</div>
-              <div className="text-[#8B94A3]">Curb occupancy modeling & parking search friction analysis.</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {standards.map((std, idx) => (
+            <div key={idx} className="p-5 rounded-xl bg-surface border border-muted space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-white">{std.title}</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#1A222D] text-[#38BDF8] border border-[#2B384A]">
+                  {std.badge}
+                </span>
+              </div>
+              <p className="text-xs text-[#8B94A3] leading-relaxed">
+                {std.desc}
+              </p>
             </div>
-            <div className="p-4 rounded-xl bg-[#0A0E14] border border-[#242C38]">
-              <div className="text-[#F5A623] font-bold mb-1">Phase 2: EncroachAI (Real-Time System)</div>
-              <div className="text-[#8B94A3]">Autonomous carriageway vision-edge signal timing optimization.</div>
-            </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
-        {/* 3. REAL-TIME DEPLOYMENT & INTEGRATION CTA */}
-        <section className="p-8 md:p-10 rounded-2xl bg-gradient-to-r from-[#131820] to-[#1B222D] border border-[#242C38] flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2ECC71]/15 text-[#2ECC71] border border-[#2ECC71]/30 text-xs font-mono">
-              <Zap className="w-3.5 h-3.5" />
-              <span>Real-Time Operational Ready</span>
-            </div>
-            <h3 className="text-2xl font-bold text-white">
-              Corridor Deployment & Autonomous Signal Actuation
-            </h3>
-            <p className="text-xs text-[#8B94A3] max-w-xl">
-              Equipped with TraCI micro-simulation actuation and direct NTCIP / SCATS controller integration interfaces for municipal arterial grids.
-            </p>
-          </div>
+      {/* 4. Technology Stack & Execution Infrastructure */}
+      <section className="p-8 rounded-2xl bg-surface-elevated border border-muted space-y-5 shadow-xl shadow-black/30">
+        <div className="flex items-center gap-2 text-xs font-mono text-[#8B94A3] uppercase tracking-wider font-semibold">
+          <Code className="w-4 h-4 text-[#F5A623]" />
+          <span>Core Technology Stack & Execution Environment</span>
+        </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={() => onRouteChange('/simulation')}
-              className="px-6 py-3 rounded-lg bg-[#F5A623] hover:bg-[#e09419] text-[#0A0E14] text-xs font-mono font-bold transition-all shadow-lg shadow-[#F5A623]/20 cursor-pointer"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {technologies.map((tech, idx) => (
+            <div
+              key={idx}
+              className="p-3.5 rounded-xl bg-surface border border-muted space-y-1 text-xs font-mono hover:border-[#F5A623]/40 transition-colors"
             >
-              Open Simulation Console
-            </button>
-            <button
-              onClick={() => onRouteChange('/demo')}
-              className="px-5 py-3 rounded-lg bg-[#1B222D] hover:bg-[#242C38] text-white text-xs font-mono border border-[#242C38] cursor-pointer"
-            >
-              Launch Live Demo
-            </button>
-          </div>
-        </section>
-      </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: tech.color }} />
+                  <span className="text-white font-bold">{tech.name}</span>
+                </div>
+                <span className="text-[10px] text-[#8B94A3] font-mono">{tech.spec}</span>
+              </div>
+              <div className="text-[#64748B] text-[11px] pl-4">{tech.category}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 };

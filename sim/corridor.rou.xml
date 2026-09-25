@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EncroachAI — Heterogeneous Traffic Flow Definitions (Chennai Arterial Calibration)
+  Vehicle composition:
+    - 48% Two-Wheelers (motorcycles, scooters)
+    - 28% Passenger Cars / Taxis
+    - 16% Three-Wheeled Auto-Rickshaws
+    - 8% Heavy Buses (MTC) & Delivery LCVs
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- Heterogeneous Vehicle Classes -->
+    <vType id="vtype_twowheeler" vClass="motorcycle" accel="3.2" decel="5.0" sigma="0.5" length="1.9" width="0.8" minGap="0.8" maxSpeed="16.67" color="yellow" lcStrategic="1.5" lcCooperative="0.2" lcSpeedGain="2.0" lcKeepRight="0.0"/>
+    <vType id="vtype_car" vClass="passenger" accel="2.6" decel="4.5" sigma="0.5" length="4.5" width="1.8" minGap="1.8" maxSpeed="15.28" color="cyan" lcStrategic="1.0" lcCooperative="0.5" lcSpeedGain="1.0"/>
+    <vType id="vtype_auto" vClass="passenger" accel="1.8" decel="3.5" sigma="0.6" length="2.8" width="1.3" minGap="1.0" maxSpeed="12.50" color="orange" lcStrategic="1.2" lcCooperative="0.3" lcSpeedGain="1.5"/>
+    <vType id="vtype_bus" vClass="bus" accel="1.2" decel="3.0" sigma="0.3" length="11.5" width="2.6" minGap="2.5" maxSpeed="11.11" color="green" lcStrategic="0.8" lcCooperative="0.8" lcSpeedGain="0.5"/>
+
+    <!-- Corridor Routes (Southbound: Spencers -> Guindy; Northbound: Guindy -> Spencers) -->
+    <route id="route_southbound" edges="edge_entry_spencers edge_spencers_tlights edge_tlights_gemini edge_gemini_dms edge_dms_nandanam edge_nandanam_saidapet edge_saidapet_guindy edge_exit_guindy"/>
+    <route id="route_northbound" edges="edge_entry_guindy edge_guindy_saidapet edge_saidapet_nandanam edge_nandanam_dms edge_dms_gemini edge_gemini_tlights edge_tlights_spencers edge_exit_spencers"/>
+
+    <!-- Turning Movement Routes at Active Intersections -->
+    <route id="route_cross_spencers" edges="cross_spencers_in cross_spencers_out"/>
+    <route id="route_cross_gemini" edges="cross_gemini_in cross_gemini_out"/>
+    <route id="route_cross_nandanam" edges="cross_nandanam_in cross_nandanam_out"/>
+
+    <!-- Peak Hour Flow Injections (Vehicles / Hour calibrated to 4,200 veh/hr nominal corridor volume) -->
+    <!-- Southbound Flows -->
+    <flow id="flow_sb_twowheeler" type="vtype_twowheeler" route="route_southbound" begin="0" end="3600" probability="0.56" departLane="best" departSpeed="max"/>
+    <flow id="flow_sb_car" type="vtype_car" route="route_southbound" begin="0" end="3600" probability="0.32" departLane="best" departSpeed="max"/>
+    <flow id="flow_sb_auto" type="vtype_auto" route="route_southbound" begin="0" end="3600" probability="0.18" departLane="best" departSpeed="max"/>
+    <flow id="flow_sb_bus" type="vtype_bus" route="route_southbound" begin="0" end="3600" probability="0.06" departLane="best" departSpeed="max"/>
+
+    <!-- Northbound Flows -->
+    <flow id="flow_nb_twowheeler" type="vtype_twowheeler" route="route_northbound" begin="0" end="3600" probability="0.52" departLane="best" departSpeed="max"/>
+    <flow id="flow_nb_car" type="vtype_car" route="route_northbound" begin="0" end="3600" probability="0.30" departLane="best" departSpeed="max"/>
+    <flow id="flow_nb_auto" type="vtype_auto" route="route_northbound" begin="0" end="3600" probability="0.16" departLane="best" departSpeed="max"/>
+    <flow id="flow_nb_bus" type="vtype_bus" route="route_northbound" begin="0" end="3600" probability="0.05" departLane="best" departSpeed="max"/>
+
+    <!-- Cross-Street Demand (Minor arterial crossings) -->
+    <flow id="flow_cross_spencers" type="vtype_car" route="route_cross_spencers" begin="0" end="3600" probability="0.15" departLane="best"/>
+    <flow id="flow_cross_gemini" type="vtype_car" route="route_cross_gemini" begin="0" end="3600" probability="0.22" departLane="best"/>
+    <flow id="flow_cross_nandanam" type="vtype_car" route="route_cross_nandanam" begin="0" end="3600" probability="0.28" departLane="best"/>
+</routes>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EncroachAI — Anna Salai 7-Intersection Arterial Network (SUMO .net.xml)
+  Corridor geometry:
+    int-1: Spencers Plaza (x=0, y=3000)
+    int-2: Thousand Lights (x=0, y=2500)
+    int-3: Gemini Flyover (x=0, y=2000)
+    int-4: DMS Metro (x=0, y=1500)
+    int-5: Nandanam / Usman Rd Connector (x=0, y=1000)
+    int-6: Saidapet (x=0, y=500)
+    int-7: Guindy (x=0, y=0)
+-->
+<net version="1.9" junctionCornerDetail="5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+    <location netOffset="0.00,0.00" convBoundary="-200.00,0.00,200.00,3200.00" origBoundary="80.24,13.01,80.26,13.06" projParameter="!"/>
+
+    <!-- Edge Types -->
+    <type id="arterial_4lane" numLanes="4" speed="13.89" priority="9"/>
+    <type id="arterial_3lane" numLanes="3" speed="13.89" priority="8"/>
+    <type id="cross_street" numLanes="2" speed="11.11" priority="6"/>
+
+    <!-- Junction Definitions (7 Intersections + Ingress/Egress) -->
+    <junction id="node_ingress_north" type="dead_end" x="0.00" y="3200.00" incLanes="" intLanes="" shape="-14.00,3200.00 0.00,3200.00"/>
+    <junction id="int-1" type="traffic_light" x="0.00" y="3000.00" incLanes="edge_entry_spencers_0 edge_entry_spencers_1 edge_entry_spencers_2 edge_entry_spencers_3 edge_tlights_spencers_0 edge_tlights_spencers_1 edge_tlights_spencers_2 edge_tlights_spencers_3 cross_spencers_in_0 cross_spencers_in_1" intLanes="" shape="-14.00,3020.00 14.00,3020.00 14.00,2980.00 -14.00,2980.00"/>
+    <junction id="int-2" type="priority" x="0.00" y="2500.00" incLanes="edge_spencers_tlights_0 edge_spencers_tlights_1 edge_spencers_tlights_2 edge_gemini_tlights_0 edge_gemini_tlights_1 edge_gemini_tlights_2" intLanes="" shape="-10.50,2515.00 10.50,2515.00 10.50,2485.00 -10.50,2485.00"/>
+    <junction id="int-3" type="traffic_light" x="0.00" y="2000.00" incLanes="edge_tlights_gemini_0 edge_tlights_gemini_1 edge_tlights_gemini_2 edge_dms_gemini_0 edge_dms_gemini_1 edge_dms_gemini_2 cross_gemini_in_0 cross_gemini_in_1" intLanes="" shape="-10.50,2020.00 10.50,2020.00 10.50,1980.00 -10.50,1980.00"/>
+    <junction id="int-4" type="priority" x="0.00" y="1500.00" incLanes="edge_gemini_dms_0 edge_gemini_dms_1 edge_gemini_dms_2 edge_nandanam_dms_0 edge_nandanam_dms_1 edge_nandanam_dms_2" intLanes="" shape="-10.50,1515.00 10.50,1515.00 10.50,1485.00 -10.50,1485.00"/>
+    <junction id="int-5" type="traffic_light" x="0.00" y="1000.00" incLanes="edge_dms_nandanam_0 edge_dms_nandanam_1 edge_dms_nandanam_2 edge_dms_nandanam_3 edge_saidapet_nandanam_0 edge_saidapet_nandanam_1 edge_saidapet_nandanam_2 edge_saidapet_nandanam_3 cross_nandanam_in_0 cross_nandanam_in_1" intLanes="" shape="-14.00,1020.00 14.00,1020.00 14.00,980.00 -14.00,980.00"/>
+    <junction id="int-6" type="priority" x="0.00" y="500.00" incLanes="edge_nandanam_saidapet_0 edge_nandanam_saidapet_1 edge_nandanam_saidapet_2 edge_guindy_saidapet_0 edge_guindy_saidapet_1 edge_guindy_saidapet_2" intLanes="" shape="-10.50,515.00 10.50,515.00 10.50,485.00 -10.50,485.00"/>
+    <junction id="int-7" type="traffic_light" x="0.00" y="100.00" incLanes="edge_saidapet_guindy_0 edge_saidapet_guindy_1 edge_saidapet_guindy_2 edge_entry_guindy_0 edge_entry_guindy_1 edge_entry_guindy_2" intLanes="" shape="-10.50,120.00 10.50,120.00 10.50,80.00 -10.50,80.00"/>
+    <junction id="node_egress_south" type="dead_end" x="0.00" y="-100.00" incLanes="" intLanes="" shape="-10.50,-100.00 10.50,-100.00"/>
+
+    <!-- Cross Street External Terminals -->
+    <junction id="node_spencers_west" type="dead_end" x="-150.00" y="3000.00"/>
+    <junction id="node_spencers_east" type="dead_end" x="150.00" y="3000.00"/>
+    <junction id="node_gemini_west" type="dead_end" x="-150.00" y="2000.00"/>
+    <junction id="node_gemini_east" type="dead_end" x="150.00" y="2000.00"/>
+    <junction id="node_nandanam_west" type="dead_end" x="-150.00" y="1000.00"/>
+    <junction id="node_nandanam_east" type="dead_end" x="150.00" y="1000.00"/>
+
+    <!-- Arterial Road Edges (Southbound) -->
+    <edge id="edge_entry_spencers" from="node_ingress_north" to="int-1" priority="9" type="arterial_4lane">
+        <lane id="edge_entry_spencers_0" index="0" speed="13.89" length="200.00" shape="-12.25,3200.00 -12.25,3020.00"/>
+        <lane id="edge_entry_spencers_1" index="1" speed="13.89" length="200.00" shape="-8.75,3200.00 -8.75,3020.00"/>
+        <lane id="edge_entry_spencers_2" index="2" speed="13.89" length="200.00" shape="-5.25,3200.00 -5.25,3020.00"/>
+        <lane id="edge_entry_spencers_3" index="3" speed="13.89" length="200.00" shape="-1.75,3200.00 -1.75,3020.00"/>
+    </edge>
+
+    <edge id="edge_spencers_tlights" from="int-1" to="int-2" priority="8" type="arterial_3lane">
+        <lane id="edge_spencers_tlights_0" index="0" speed="13.89" length="480.00" shape="-8.75,2980.00 -8.75,2515.00"/>
+        <lane id="edge_spencers_tlights_1" index="1" speed="13.89" length="480.00" shape="-5.25,2980.00 -5.25,2515.00"/>
+        <lane id="edge_spencers_tlights_2" index="2" speed="13.89" length="480.00" shape="-1.75,2980.00 -1.75,2515.00"/>
+    </edge>
+
+    <edge id="edge_tlights_gemini" from="int-2" to="int-3" priority="8" type="arterial_3lane">
+        <lane id="edge_tlights_gemini_0" index="0" speed="13.89" length="480.00" shape="-8.75,2485.00 -8.75,2020.00"/>
+        <lane id="edge_tlights_gemini_1" index="1" speed="13.89" length="480.00" shape="-5.25,2485.00 -5.25,2020.00"/>
+        <lane id="edge_tlights_gemini_2" index="2" speed="13.89" length="480.00" shape="-1.75,2485.00 -1.75,2020.00"/>
+    </edge>
+
+    <edge id="edge_gemini_dms" from="int-3" to="int-4" priority="8" type="arterial_3lane">
+        <lane id="edge_gemini_dms_0" index="0" speed="13.89" length="480.00" shape="-8.75,1980.00 -8.75,1515.00"/>
+        <lane id="edge_gemini_dms_1" index="1" speed="13.89" length="480.00" shape="-5.25,1980.00 -5.25,1515.00"/>
+        <lane id="edge_gemini_dms_2" index="2" speed="13.89" length="480.00" shape="-1.75,1980.00 -1.75,1515.00"/>
+    </edge>
+
+    <edge id="edge_dms_nandanam" from="int-4" to="int-5" priority="9" type="arterial_4lane">
+        <lane id="edge_dms_nandanam_0" index="0" speed="13.89" length="480.00" shape="-12.25,1485.00 -12.25,1020.00"/>
+        <lane id="edge_dms_nandanam_1" index="1" speed="13.89" length="480.00" shape="-8.75,1485.00 -8.75,1020.00"/>
+        <lane id="edge_dms_nandanam_2" index="2" speed="13.89" length="480.00" shape="-5.25,1485.00 -5.25,1020.00"/>
+        <lane id="edge_dms_nandanam_3" index="3" speed="13.89" length="480.00" shape="-1.75,1485.00 -1.75,1020.00"/>
+    </edge>
+
+    <edge id="edge_nandanam_saidapet" from="int-5" to="int-6" priority="8" type="arterial_3lane">
+        <lane id="edge_nandanam_saidapet_0" index="0" speed="13.89" length="480.00" shape="-8.75,980.00 -8.75,515.00"/>
+        <lane id="edge_nandanam_saidapet_1" index="1" speed="13.89" length="480.00" shape="-5.25,980.00 -5.25,515.00"/>
+        <lane id="edge_nandanam_saidapet_2" index="2" speed="13.89" length="480.00" shape="-1.75,980.00 -1.75,515.00"/>
+    </edge>
+
+    <edge id="edge_saidapet_guindy" from="int-6" to="int-7" priority="8" type="arterial_3lane">
+        <lane id="edge_saidapet_guindy_0" index="0" speed="13.89" length="380.00" shape="-8.75,485.00 -8.75,120.00"/>
+        <lane id="edge_saidapet_guindy_1" index="1" speed="13.89" length="380.00" shape="-5.25,485.00 -5.25,120.00"/>
+        <lane id="edge_saidapet_guindy_2" index="2" speed="13.89" length="380.00" shape="-1.75,485.00 -1.75,120.00"/>
+    </edge>
+
+    <edge id="edge_exit_guindy" from="int-7" to="node_egress_south" priority="8" type="arterial_3lane">
+        <lane id="edge_exit_guindy_0" index="0" speed="13.89" length="180.00" shape="-8.75,80.00 -8.75,-100.00"/>
+        <lane id="edge_exit_guindy_1" index="1" speed="13.89" length="180.00" shape="-5.25,80.00 -5.25,-100.00"/>
+        <lane id="edge_exit_guindy_2" index="2" speed="13.89" length="180.00" shape="-1.75,80.00 -1.75,-100.00"/>
+    </edge>
+
+    <!-- Arterial Road Edges (Northbound) -->
+    <edge id="edge_entry_guindy" from="node_egress_south" to="int-7" priority="8" type="arterial_3lane">
+        <lane id="edge_entry_guindy_0" index="0" speed="13.89" length="180.00" shape="1.75,-100.00 1.75,80.00"/>
+        <lane id="edge_entry_guindy_1" index="1" speed="13.89" length="180.00" shape="5.25,-100.00 5.25,80.00"/>
+        <lane id="edge_entry_guindy_2" index="2" speed="13.89" length="180.00" shape="8.75,-100.00 8.75,80.00"/>
+    </edge>
+
+    <edge id="edge_guindy_saidapet" from="int-7" to="int-6" priority="8" type="arterial_3lane">
+        <lane id="edge_guindy_saidapet_0" index="0" speed="13.89" length="380.00" shape="1.75,120.00 1.75,485.00"/>
+        <lane id="edge_guindy_saidapet_1" index="1" speed="13.89" length="380.00" shape="5.25,120.00 5.25,485.00"/>
+        <lane id="edge_guindy_saidapet_2" index="2" speed="13.89" length="380.00" shape="8.75,120.00 8.75,485.00"/>
+    </edge>
+
+    <edge id="edge_saidapet_nandanam" from="int-6" to="int-5" priority="9" type="arterial_4lane">
+        <lane id="edge_saidapet_nandanam_0" index="0" speed="13.89" length="480.00" shape="1.75,515.00 1.75,980.00"/>
+        <lane id="edge_saidapet_nandanam_1" index="1" speed="13.89" length="480.00" shape="5.25,515.00 5.25,980.00"/>
+        <lane id="edge_saidapet_nandanam_2" index="2" speed="13.89" length="480.00" shape="8.75,515.00 8.75,980.00"/>
+        <lane id="edge_saidapet_nandanam_3" index="3" speed="13.89" length="480.00" shape="12.25,515.00 12.25,980.00"/>
+    </edge>
+
+    <edge id="edge_nandanam_dms" from="int-5" to="int-4" priority="8" type="arterial_3lane">
+        <lane id="edge_nandanam_dms_0" index="0" speed="13.89" length="480.00" shape="1.75,1020.00 1.75,1485.00"/>
+        <lane id="edge_nandanam_dms_1" index="1" speed="13.89" length="480.00" shape="5.25,1020.00 5.25,1485.00"/>
+        <lane id="edge_nandanam_dms_2" index="2" speed="13.89" length="480.00" shape="8.75,1020.00 8.75,1485.00"/>
+    </edge>
+
+    <edge id="edge_dms_gemini" from="int-4" to="int-3" priority="8" type="arterial_3lane">
+        <lane id="edge_dms_gemini_0" index="0" speed="13.89" length="480.00" shape="1.75,1515.00 1.75,1980.00"/>
+        <lane id="edge_dms_gemini_1" index="1" speed="13.89" length="480.00" shape="5.25,1515.00 5.25,1980.00"/>
+        <lane id="edge_dms_gemini_2" index="2" speed="13.89" length="480.00" shape="8.75,1515.00 8.75,1980.00"/>
+    </edge>
+
+    <edge id="edge_gemini_tlights" from="int-3" to="int-2" priority="8" type="arterial_3lane">
+        <lane id="edge_gemini_tlights_0" index="0" speed="13.89" length="480.00" shape="1.75,2020.00 1.75,2485.00"/>
+        <lane id="edge_gemini_tlights_1" index="1" speed="13.89" length="480.00" shape="5.25,2020.00 5.25,2485.00"/>
+        <lane id="edge_gemini_tlights_2" index="2" speed="13.89" length="480.00" shape="8.75,2020.00 8.75,2485.00"/>
+    </edge>
+
+    <edge id="edge_tlights_spencers" from="int-2" to="int-1" priority="9" type="arterial_4lane">
+        <lane id="edge_tlights_spencers_0" index="0" speed="13.89" length="480.00" shape="1.75,2515.00 1.75,2980.00"/>
+        <lane id="edge_tlights_spencers_1" index="1" speed="13.89" length="480.00" shape="5.25,2515.00 5.25,2980.00"/>
+        <lane id="edge_tlights_spencers_2" index="2" speed="13.89" length="480.00" shape="8.75,2515.00 8.75,2980.00"/>
+        <lane id="edge_tlights_spencers_3" index="3" speed="13.89" length="480.00" shape="12.25,2515.00 12.25,2980.00"/>
+    </edge>
+
+    <edge id="edge_exit_spencers" from="int-1" to="node_ingress_north" priority="9" type="arterial_4lane">
+        <lane id="edge_exit_spencers_0" index="0" speed="13.89" length="200.00" shape="1.75,3020.00 1.75,3200.00"/>
+        <lane id="edge_exit_spencers_1" index="1" speed="13.89" length="200.00" shape="5.25,3020.00 5.25,3200.00"/>
+        <lane id="edge_exit_spencers_2" index="2" speed="13.89" length="200.00" shape="8.75,3020.00 8.75,3200.00"/>
+        <lane id="edge_exit_spencers_3" index="3" speed="13.89" length="200.00" shape="12.25,3020.00 12.25,3200.00"/>
+    </edge>
+
+    <!-- Cross Street Edges -->
+    <edge id="cross_spencers_in" from="node_spencers_west" to="int-1" priority="6" type="cross_street">
+        <lane id="cross_spencers_in_0" index="0" speed="11.11" length="150.00" shape="-150.00,2996.50 -14.00,2996.50"/>
+        <lane id="cross_spencers_in_1" index="1" speed="11.11" length="150.00" shape="-150.00,3000.00 -14.00,3000.00"/>
+    </edge>
+    <edge id="cross_spencers_out" from="int-1" to="node_spencers_east" priority="6" type="cross_street">
+        <lane id="cross_spencers_out_0" index="0" speed="11.11" length="150.00" shape="14.00,2996.50 150.00,2996.50"/>
+        <lane id="cross_spencers_out_1" index="1" speed="11.11" length="150.00" shape="14.00,3000.00 150.00,3000.00"/>
+    </edge>
+
+    <edge id="cross_gemini_in" from="node_gemini_west" to="int-3" priority="6" type="cross_street">
+        <lane id="cross_gemini_in_0" index="0" speed="11.11" length="150.00" shape="-150.00,1996.50 -10.50,1996.50"/>
+        <lane id="cross_gemini_in_1" index="1" speed="11.11" length="150.00" shape="-150.00,2000.00 -10.50,2000.00"/>
+    </edge>
+    <edge id="cross_gemini_out" from="int-3" to="node_gemini_east" priority="6" type="cross_street">
+        <lane id="cross_gemini_out_0" index="0" speed="11.11" length="150.00" shape="10.50,1996.50 150.00,1996.50"/>
+        <lane id="cross_gemini_out_1" index="1" speed="11.11" length="150.00" shape="10.50,2000.00 150.00,2000.00"/>
+    </edge>
+
+    <edge id="cross_nandanam_in" from="node_nandanam_west" to="int-5" priority="6" type="cross_street">
+        <lane id="cross_nandanam_in_0" index="0" speed="11.11" length="150.00" shape="-150.00,996.50 -14.00,996.50"/>
+        <lane id="cross_nandanam_in_1" index="1" speed="11.11" length="150.00" shape="-150.00,1000.00 -14.00,1000.00"/>
+    </edge>
+    <edge id="cross_nandanam_out" from="int-5" to="node_nandanam_east" priority="6" type="cross_street">
+        <lane id="cross_nandanam_out_0" index="0" speed="11.11" length="150.00" shape="14.00,996.50 150.00,996.50"/>
+        <lane id="cross_nandanam_out_1" index="1" speed="11.11" length="150.00" shape="14.00,1000.00 150.00,1000.00"/>
+    </edge>
+
+    <!-- Traffic Light Logics (4-Phase Dynamic Webster / EncroachAI Control) -->
+    <tlLogic id="int-1" type="static" programID="encroachai_adaptive" offset="0">
+        <phase duration="45" state="GGGGggrrrr"/>
+        <phase duration="4"  state="yyyyyyrrrr"/>
+        <phase duration="25" state="rrrrrrGGGG"/>
+        <phase duration="4"  state="rrrrrryyyy"/>
+    </tlLogic>
+
+    <tlLogic id="int-3" type="static" programID="encroachai_adaptive" offset="12">
+        <phase duration="50" state="GGGggrrrr"/>
+        <phase duration="4"  state="yyyggrrrr"/>
+        <phase duration="30" state="rrrrrGGGG"/>
+        <phase duration="4"  state="rrrrryyyy"/>
+    </tlLogic>
+
+    <tlLogic id="int-5" type="static" programID="encroachai_adaptive" offset="24">
+        <phase duration="48" state="GGGGggrrrr"/>
+        <phase duration="4"  state="yyyyyyrrrr"/>
+        <phase duration="32" state="rrrrrrGGGG"/>
+        <phase duration="4"  state="rrrrrryyyy"/>
+    </tlLogic>
+
+    <tlLogic id="int-7" type="static" programID="encroachai_adaptive" offset="36">
+        <phase duration="42" state="GGGggrrrr"/>
+        <phase duration="4"  state="yyyggrrrr"/>
+        <phase duration="28" state="rrrrrGGGG"/>
+        <phase duration="4"  state="rrrrryyyy"/>
+    </tlLogic>
+
+    <!-- Standard Approach Connections -->
+    <connection from="edge_entry_spencers" to="edge_spencers_tlights" fromLane="1" toLane="0"/>
+    <connection from="edge_entry_spencers" to="edge_spencers_tlights" fromLane="2" toLane="1"/>
+    <connection from="edge_entry_spencers" to="edge_spencers_tlights" fromLane="3" toLane="2"/>
+    <connection from="edge_spencers_tlights" to="edge_tlights_gemini" fromLane="0" toLane="0"/>
+    <connection from="edge_spencers_tlights" to="edge_tlights_gemini" fromLane="1" toLane="1"/>
+    <connection from="edge_spencers_tlights" to="edge_tlights_gemini" fromLane="2" toLane="2"/>
+    <connection from="edge_tlights_gemini" to="edge_gemini_dms" fromLane="0" toLane="0"/>
+    <connection from="edge_tlights_gemini" to="edge_gemini_dms" fromLane="1" toLane="1"/>
+    <connection from="edge_tlights_gemini" to="edge_gemini_dms" fromLane="2" toLane="2"/>
+    <connection from="edge_gemini_dms" to="edge_dms_nandanam" fromLane="0" toLane="1"/>
+    <connection from="edge_gemini_dms" to="edge_dms_nandanam" fromLane="1" toLane="2"/>
+    <connection from="edge_gemini_dms" to="edge_dms_nandanam" fromLane="2" toLane="3"/>
+    <connection from="edge_dms_nandanam" to="edge_nandanam_saidapet" fromLane="1" toLane="0"/>
+    <connection from="edge_dms_nandanam" to="edge_nandanam_saidapet" fromLane="2" toLane="1"/>
+    <connection from="edge_dms_nandanam" to="edge_nandanam_saidapet" fromLane="3" toLane="2"/>
+    <connection from="edge_nandanam_saidapet" to="edge_saidapet_guindy" fromLane="0" toLane="0"/>
+    <connection from="edge_nandanam_saidapet" to="edge_saidapet_guindy" fromLane="1" toLane="1"/>
+    <connection from="edge_nandanam_saidapet" to="edge_saidapet_guindy" fromLane="2" toLane="2"/>
+    <connection from="edge_saidapet_guindy" to="edge_exit_guindy" fromLane="0" toLane="0"/>
+    <connection from="edge_saidapet_guindy" to="edge_exit_guindy" fromLane="1" toLane="1"/>
+    <connection from="edge_saidapet_guindy" to="edge_exit_guindy" fromLane="2" toLane="2"/>
+</net>
